@@ -3,13 +3,13 @@ class TodoComponent {
         // Assign outer TodoComponent Element. We should do all of our searching within here, not `document`.
         this.componentElement = componentElement;
         // Get the todos container element
-        this.todosElement;
+        this.todosElement = document.querySelector('todo-container');
         // instantiate the Todos class with it
-        this.todos;
+        this.todos = new Todos(this.todos);
         // Do the same with form Element
-        this.formElement;
+        this.formElement = new TodoForm(this.formElement);
         // I've given you a hint here. Look at the TodoForm constructor.
-        this.form; 
+        this.form = formElement;
     }
 }
 
@@ -19,6 +19,9 @@ class Todos {
     }
     addTodo(text) {
         // Add a todo element to the container, and instantiate its class
+        this.containerElement = this.querySelector("todo-input").value;
+        this.todo = new Todo(this.containerElement);
+
     }
 }
 
@@ -26,6 +29,7 @@ class Todo {
     constructor(todoElement) {
         this.todoElement = todoElement;
         // What do we need to add to make our element to make `this.toggle` work?
+
     }
     toggle() {
         // Toggle the element being 'done'
@@ -47,7 +51,7 @@ class TodoForm {
     }
     submitTodo() {
         // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
-        // see 'value'. 
+        // see 'value'.
 
         // We need to actually add a todo to the page. If only we had access to
         // a class that has a member function that does just that.
